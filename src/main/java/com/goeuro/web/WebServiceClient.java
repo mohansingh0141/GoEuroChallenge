@@ -17,6 +17,10 @@ public class WebServiceClient {
 
    public JSONArray getPositionSuggestions(String cityName){
 
+       if( cityName.isEmpty() ){
+           return new JSONArray();
+       }
+
        try {
            HttpResponse<JsonNode> webResponse = Unirest.get(WEB_ENDPOINT_BASE).routeParam(CITY_NAME_KEY,cityName).asJson();
            return webResponse.getBody().getArray();
