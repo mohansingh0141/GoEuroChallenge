@@ -1,5 +1,8 @@
 package com.goeuro;
 
+import com.goeuro.publishers.CsvFilePublisher;
+import com.goeuro.web.WebServiceClient;
+
 /**
  * Created by mohan singh on 1/11/15.
  */
@@ -13,6 +16,13 @@ public class Executor {
             return;
         }
 
+        WebServiceClient serviceClient = new WebServiceClient();
+
+        CsvFilePublisher publisher = new CsvFilePublisher();
+
+        PublishStatus status = publisher.publishFile(serviceClient.getPositionSuggestions(args[0]));
+
+        System.out.println(status.getMessage());
 
 
     }
