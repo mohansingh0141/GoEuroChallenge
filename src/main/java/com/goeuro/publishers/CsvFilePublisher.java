@@ -36,8 +36,8 @@ public class CsvFilePublisher {
             return PublishStatus.FAILED_NORECORDS;
         }
 
-        FileWriter fileWriter = null;
-        CSVPrinter csvPrinter = null;
+        FileWriter fileWriter;
+        CSVPrinter csvPrinter;
 
         CSVFormat csvFormat = CSVFormat.DEFAULT.withHeader(ID_KEY,NAME_KEY,
                 TYPE_KEY,LATITUDE_KEY,LONGITUDE_KEY);
